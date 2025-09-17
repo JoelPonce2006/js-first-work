@@ -17,6 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  align-items: stretch;
 }
 
 .header-extensions-contain {
@@ -54,19 +55,6 @@ body {
   font-weight: 800;
 }
 
-.extensions-buttons-contain {
-  display: flex;
-  gap: 12px;
-}
-
-.extensions-buttons {
-  font-size: 16px;
-  padding: 12px;
-  color: hsl(227, 75%, 14%);
-  border: 0.5px solid hsl(0, 0%, 94%);
-  border-radius: 40px;
-}
-
 .extensions-elements {
   padding: 20px;
   border: 1px solid transparent;
@@ -101,15 +89,104 @@ body {
   font-size: 16px;
 }
 
-.extensions-buttons-elements {
-  display: flex;
-  justify-content: space-between;
-}
-
 .button-red {
   border: 1px solid red;
   color: white;
   background-color: red;
   border-radius: 20px;
   padding: 2px 20px 2px 20px;
+}
+
+.switch {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 32px;
+  vertical-align: middle;
+}
+
+.switch input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #ddd;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+  z-index: 1;
+  display: block;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 4px;
+  top: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.18s ease;
+}
+
+.switch input:checked + .slider {
+  background-color: red;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+.extensions-buttons-contain {
+  display: flex;
+  gap: 12px;
+}
+
+.extensions-buttons {
+  font-size: 16px;
+  padding: 12px;
+  color: hsl(227, 75%, 14%);
+  border: 0.5px solid hsl(0, 0%, 94%);
+  border-radius: 40px;
+  background-color: white;
+}
+
+.button-remove {
+  font-size: 16px;
+  padding: 12px;
+  color: hsl(227, 75%, 14%);
+  border: 0.5px solid hsl(0, 0%, 80%);
+  border-radius: 40px;
+  background-color: white;
+}
+
+.button-remove:active {
+  background-color: #c6231b;
+  color: white;
+  border: 0.5px solid #c6231b;
+}
+
+.activo {
+  background-color: #c6231b;
+  color: white;
+  border: 0.5px solid #c6231b;
+}
+
+.extensions-buttons-elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

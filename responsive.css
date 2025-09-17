@@ -1,0 +1,17 @@
+@media (min-width: 1024px) {
+  body {
+    margin: 40px 134px;
+  }
+
+  .extensions-contain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .main-extensions-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
+}
