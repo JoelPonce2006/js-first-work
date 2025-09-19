@@ -1,12 +1,12 @@
 * {
   font-family: "Noto Sans", sans-serif;
-  background-color: hsl(200, 60%, 99%);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 body {
+  background-color: hsl(200, 60%, 99%);
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -25,17 +25,17 @@ body {
   border: 1px solid transparent;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-  background-color: white;
+  background-color: hsl(200, 60%, 99%);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.mode-color {
-  background-color: hsl(0, 0%, 93%);
+.mode-color-light {
+  display: none;
 }
 
-.header-mode-color {
+.theme-toggle {
   border: 1px solid transparent;
   border-radius: 8px;
   padding: 10px;
@@ -60,6 +60,11 @@ body {
   border: 1px solid transparent;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  background-color: hsl(200, 60%, 99%);
+}
+
+body.dark .extensions-elements .extensions-buttons .header-extensions-contain {
+  background-color: #1f2535;
 }
 
 .box-extensions-contain {
@@ -189,4 +194,58 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+body.dark {
+  background: linear-gradient(180deg, #040918 0%, #091540 100%);
+  color: #e6eefc;
+}
+
+body.dark .extensions-buttons,
+body.dark .header-extensions-contain,
+body.dark .extensions-elements,
+body.dark .button-remove {
+  background: #1f2535;
+  color: #e6eefc;
+}
+
+body.dark .button-remove:active {
+  background-color: #c6231b;
+  color: white;
+  border: 0.5px solid #c6231b;
+}
+
+body.dark .activo {
+  background-color: #c6231b;
+  color: white;
+  border: 0.5px solid #c6231b;
+}
+
+body.dark .extensions-elements {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .extensions-buttons,
+body.dark .extensions-title,
+body.dark .extensions-list-title {
+  color: #e6eefc;
+}
+
+body.dark .slider {
+  background: #2b3240;
+}
+body.dark .switch input:checked + .slider {
+  background-color: red;
+}
+
+body.dark .mode-color-light {
+  display: block;
+}
+
+body.dark .mode-color {
+  display: none;
+}
+
+body.dark .theme-toggle {
+  background-color: #2b3240;
 }
