@@ -9,23 +9,9 @@ toggleTheme.addEventListener("click", () => {
   body.classList.toggle("dark");
 });
 
-buttons.forEach((boton) => {
-  boton.addEventListener("click", () => {
-    buttons.forEach((b) => b.classList.remove("activo"));
-
-    boton.classList.add("activo");
-  });
-});
-
 let currentFilter = "All";
 
-function normalize(text) {
-  return text.trim().toLowerCase();
-}
-
 function applyFilter(filter) {
-  currentFilter = filter;
-
   extensions.forEach((ext) => {
     const checkbox = ext.querySelector(".switch input");
     const isActive = checkbox && checkbox.checked;
@@ -40,21 +26,14 @@ function applyFilter(filter) {
   });
 }
 
-function setActiveButton(filter) {
-  buttons.forEach((b) => b.classList.remove("activo"));
-  const targetBtn = Array.from(buttons).find(
-    (b) => normalize(b.textContent) === normalize(filter)
-  );
-  if (targetBtn) {
-    targetBtn.classList.add("activo");
-  }
-}
-
-buttons.forEach((btn) => {
-  btn.addEventListener("click", () => {
+buttons.forEach((boton) => {
+  boton.addEventListener("click", () => {
     buttons.forEach((b) => b.classList.remove("activo"));
-    btn.classList.add("activo");
-    applyFilter(btn.textContent.trim());
+
+    boton.classList.add("activo");
+    const newFilter = boton.textContent.trim();
+    applyFilter(newFilter);
+    currentFilter = newFilter;
   });
 });
 
@@ -66,6 +45,3 @@ extensions.forEach((ext) => {
     });
   }
 });
-
-setActiveButton("All");
-applyFilter("All");

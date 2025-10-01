@@ -10,7 +10,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin: 16px;
+  padding: 16px;
+  min-height: 100dvh;
 }
 
 .main-extensions-nav {
